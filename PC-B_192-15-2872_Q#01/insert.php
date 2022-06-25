@@ -40,6 +40,11 @@
             echo "ERROR: Hush! Sorry $sql. "
                 . mysqli_error($conn);
         }
+
+        if ($user) { // if user exists
+            if ($user['username'] === $username) {
+              array_push($errors, "Username already exists");
+            }
          
         // Close connection
         mysqli_close($conn);
